@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "375034192591",
+    "project_id": "flutter-instagram-599bd",
+    "storage_bucket": "flutter-instagram-599bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375034192591:android:4686cbd8ed5e01a3ca8dba",
+        "android_client_info": {
+          "package_name": "app.hristov.instagram"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK5hiCyyvi2vA9Is5jsZ4OOa41sB-VkLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375034192591:android:1585d4624e769aecca8dba",
+        "android_client_info": {
+          "package_name": "app.hristov.instagram.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK5hiCyyvi2vA9Is5jsZ4OOa41sB-VkLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:375034192591:android:2b174cf77d3aaba6ca8dba",
+        "android_client_info": {
+          "package_name": "app.hristov.instagram.stg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK5hiCyyvi2vA9Is5jsZ4OOa41sB-VkLc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

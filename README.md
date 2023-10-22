@@ -64,3 +64,98 @@ flutter pub add image_picker # Select images. Needs additional setup (https://pu
     android:screenOrientation="portrait"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 ```
+
+Create new project in [Firebase Console](https://console.firebase.google.com/):
+
+- Project name: "flutter-instagram"
+- Enable Google analytics: yes
+- Configure Google Analytics - Account: "Default Account" or create new "flutter-instagram"
+
+Add iOSs app:
+
+- iOS bundle ID: "app.hristov.instagram" - you can find in "ios\Runner.xcodeproj\project.pbxproj" under "PRODUCT_BUNDLE_IDENTIFIER"
+
+Download "GoogleService-Info.plist"
+
+- Save under "ios\Runner\GoogleService-Info.plist".
+
+TODO: It has to be added in XCode under "Runner" below "Info.plist".s
+
+- Skip thee rest of steps
+
+Add Android app:
+
+- Android package name: "app.hristov.instagram" - you can find in "android\app\build.gradle" under "android\namespace"
+
+Download "google-services.json"
+
+- Save under "android\app\google-services.json"
+
+Note: similarly add "app.hristov.instagram.stg" and "app.hristov.instagram.dev" projects for the staging and dev environment.
+
+Edit "android\app\build.gradle" and change API levels, see: [api levels](https://apilevels.com/)
+
+- See: [Gradle configurations](https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration)
+
+Click next - Add Firebase SDK, select Groovy and follow the instructions ...
+
+- Add the plugin as a dependency to your project-level build.gradle file under "android\build.gradle":
+
+```gradle
+    dependencies {
+      ...
+        classpath 'com.google.gms:google-services:4.4.0'
+```
+
+- Apply the plugin in the app-level build.gradle file under "android\app\build.gradle":
+
+```gradle
+apply plugin: 'com.google.gms.google-services'
+```
+
+- Import Firebase BoM dependency into the app-level build.gradle file under "android\app\build.gradle". Add any product you want to use as listed on [this page of available libraries](https://firebase.google.com/docs/android/setup#available-libraries)
+
+```gradle
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:32.4.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-storage'
+```
+
+Add Authentication from the Firebase Console (section Build from the menus on the left)
+
+- Add "Email & Password" Sign-in provider. You can also enable other providers from the list if you want.
+
+Add Firestore Database
+
+- Select "Start in test mode" - anyone with DB reference will be able to access for 30 days
+- Go to the "Rules" section of the "Cloud Firestore" and replace the 30 days access with authenticated access:
+
+instead of this:
+
+```js
+    match /{document=**} {
+      allow read, write: if request.time < timestamp.date(2023, 11, 20);
+    }
+```
+
+do this:
+
+```js
+    match /{document=**} {
+      allow read, write: if request.auth.uid != null;
+    }
+```
+
+Add Storage
+
+- apply similar configuration to the Firestore configuration
+
+To make sure the Firebase works normally we make the `main()` method async and add these below 2 lines just before the `runApp()` call. In this case we add to "lib\bootstrap.dart" under `bootstrap()`:
+
+```dart
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+```
