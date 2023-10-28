@@ -159,3 +159,61 @@ To make sure the Firebase works normally we make the `main()` method async and a
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 ```
+
+## Section 2: Setup: New Firebase Flutter integration
+
+This follows the instructions [Add Firebase to your Flutter app](https://console.firebase.google.com/u/0/project/flutter-instagram-599bd/overview).
+
+Install [Firebase CLI and login](https://firebase.google.com/docs/cli?hl=en&authuser=0&_gl=1*18clbvm*_ga*MTE4Mjk2Nzk5Ni4xNjk3OTIxNDU2*_ga_CW55HF8NVT*MTY5NzkzMjA3Mi4zLjEuMTY5NzkzMzc1NC41My4wLjA.#install_the_firebase_cli)
+
+```sh
+nvm install latest
+nvm use 21.0.0
+npm install -g firebase-tools
+firebase login --reauth
+firebase projects:list
+```
+
+Add Firebase to the project.
+This automatically registers your per-platform apps with Firebase and adds a lib/firebase_options.dart configuration file to your Flutter project.
+
+```sh
+$ dart pub global activate flutterfire_cli
+$ flutterfire configure --project=flutter-instagram-599bd
+
+...
+Firebase configuration file lib\firebase_options.dart generated successfully with the following Firebase apps:
+
+Platform  Firebase App Id
+web       1:375034192591:web:c5d0a13fb3ce0bc5ca8dba
+android   1:375034192591:android:4686cbd8ed5e01a3ca8dba
+ios       1:375034192591:ios:c3582225019fd133ca8dba
+
+Learn more about using this file and next steps from the documentation:
+ > https://firebase.google.com/docs/flutter/setup
+```
+
+Initialize Firebase, call Firebase.initializeApp from the firebase_core package with the configuration from your new firebase_options.dart file.
+
+Add this to the "bootstrap.dart":
+
+```dart
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+// ...
+
+await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
+```
+
+Then, add and begin using the [Flutter plugins](https://firebase.google.com/docs/flutter/setup?hl=en&authuser=0&_gl=1*1rz2zju*_ga*MTE4Mjk2Nzk5Ni4xNjk3OTIxNDU2*_ga_CW55HF8NVT*MTY5NzkzMjA3Mi4zLjEuMTY5NzkzNTk2Ni42MC4wLjA.&platform=ios#available-plugins)
+for the Firebase products you'd like to use.
+
+```sh
+flutter pub add firebase_analytics
+flutter pub add firebase_auth
+flutter pub add cloud_firestore
+flutter pub add firebase_storage
+```
