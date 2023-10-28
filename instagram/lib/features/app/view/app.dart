@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/app/routes/app_router.dart';
+import 'package:instagram/config/app_router.dart';
 import 'package:instagram/l10n/l10n.dart';
 import 'package:instagram/splash/view/splash_screen.dart';
 
