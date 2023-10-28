@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:instagram/app/app.dart';
-import 'package:instagram/counter/counter.dart';
+import 'package:instagram/features/app/app.dart';
+import 'package:instagram/features/counter/counter.dart';
 
 void main() {
   group('App', () {

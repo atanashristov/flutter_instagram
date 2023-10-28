@@ -1,7 +1,9 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:instagram/splash/view/splash_screen.dart';
+import 'package:instagram/features/login/view/login_screen.dart';
+import 'package:instagram/features/nav/view/nav_screen.dart';
+import 'package:instagram/features/splash/view/splash_screen.dart';
 
 class AppRouter {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -14,6 +16,10 @@ class AppRouter {
         );
       case SplashScreen.routeName:
         return SplashScreen.route();
+      case LoginScreen.routeName:
+        return LoginScreen.route();
+      case NavScreen.routeName:
+        return NavScreen.route();
       default:
         return _errorRoute();
     }
