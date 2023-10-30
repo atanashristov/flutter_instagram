@@ -17,6 +17,18 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
+To generate the localized texts, run:
+
+```sh
+flutter gen-l10n --arb-dir="lib/l10n/arb" 
+```
+
+To generate freezed classes run:
+
+```sh
+dart run build_runner build --delete-conflicting-outputs
+```
+
 ## Notes
 
 ## Section 2: Setup
@@ -216,4 +228,22 @@ flutter pub add firebase_analytics
 flutter pub add firebase_auth
 flutter pub add cloud_firestore
 flutter pub add firebase_storage
+```
+
+## Section 5: Login and Sign-up
+
+The FlatButton, RaisedButton and OutlineButton widgets have been replaced by TextButton, ElevatedButton, and OutlinedButton respectively.
+Each new button class has its own theme: TextButtonTheme, ElevatedButtonTheme, and OutlinedButtonTheme.
+
+See [Intro to material buttons 2.0](https://www.youtube.com/watch?v=Rs4EUi3WJbI) page.
+
+Adding freezed for copyWith and immutable states:
+
+```bash
+flutter pub add freezed_annotation
+flutter pub add --dev build_runner
+flutter pub add --dev freezed
+# if using freezed to generate fromJson/toJson, also add:
+# flutter pub add json_annotation
+# flutter pub add --dev json_serializable
 ```

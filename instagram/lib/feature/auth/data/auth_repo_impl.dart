@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/services.dart';
 import 'package:instagram/config/paths.dart';
-import 'package:instagram/features/auth/data/auth_repo_base.dart';
+import 'package:instagram/feature/auth/data/auth_repo_base.dart';
 import 'package:instagram/model/failure_model.dart';
 
 class AuthRepoImpl extends AuthRepoBase {

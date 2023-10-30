@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
 
-class Failure extends Error with EquatableMixin {
+class Failure with EquatableMixin implements Exception {
   Failure({required this.code, required this.message});
   final String code;
   final String message;

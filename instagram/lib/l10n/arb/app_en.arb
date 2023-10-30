@@ -7,5 +7,62 @@
     "appTitle": "Flutter Instagram",
     "@appTitle": {
         "description": "Application title"
+    },
+    "appPromptTitle": "Instagram",
+    "@appPromptTitle": {
+        "description": "Application title for prompts"
+    },
+    "usernameFieldHintText": "Username ...",
+    "@usernameFieldHintText": {
+        "description": "Username hint text"
+    },
+    "usernameFieldValidationError": "Please enter a valid username.",
+    "@usernameFieldValidationError": {
+        "description": "Username validation error message"
+    },
+
+    "emailFieldHintText": "Email address ...",
+    "@emailFieldHintText": {
+        "description": "Email field hint text"
+    },
+    "emailFieldValidationError": "Please enter a valid email.",
+    "@emailFieldValidationError": {
+        "description": "Email validation error message"
+    },
+    "passwordFieldHintText": "Password ...",
+    "@passwordFieldHintText": {
+        "description": "Password field hint text"
+    },
+    "passwordFieldValidationError": "Please enter at least 6 characters.",
+    "@passwordFieldValidationError": {
+        "description": "Password field validation error message"
+    },
+    "loginButtonText": "Log In",
+    "@loginButtonText": {
+        "description": "Login button text"
+    },
+    "toSignupButtonText": "No account? Sign Up",
+    "@toSignupButtonText": {
+        "description": "Go to signup button text"
+    },
+    "signupButtonText": "Sign Up",
+    "@loginButtonText": {
+        "description": "Signup button text"
+    },
+    "toLoginButtonText": "Signed already? Log In",
+    "@toLoginButtonText": {
+        "description": "Go to login button text"
+    },
+    "errorDialogTitle": "Error",
+    "@errorDialogTitle": {
+        "description": "Title for error dialog"
+    },
+    "errorDialogDefaultMessage": "There has been an error.",
+    "@errorDialogDefaultMessage": {
+        "description": "Default message for error dialog"
+    },
+    "okButtonTitle": "OK",
+    "@okButtonTitle": {
+        "description": "Title for OK button"
     }
 }

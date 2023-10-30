@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:instagram/features/auth/bloc/auth_bloc.dart';
-import 'package:instagram/features/login/view/login_screen.dart';
-import 'package:instagram/features/nav/view/nav_screen.dart';
+import 'package:instagram/feature/auth/bloc/auth_bloc.dart';
+import 'package:instagram/feature/login/view/login_screen.dart';
+import 'package:instagram/feature/nav/view/nav_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
