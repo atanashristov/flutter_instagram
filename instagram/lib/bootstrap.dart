@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:instagram/firebase_options.dart';
 
@@ -52,7 +53,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  EquatableConfig.stringify = true;
+  EquatableConfig.stringify = kDebugMode;
 
   runApp(await builder());
 }

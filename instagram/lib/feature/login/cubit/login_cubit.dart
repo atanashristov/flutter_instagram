@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:instagram/feature/auth/data/auth_repo_base.dart';
-import 'package:instagram/model/failure_model.dart';
+import 'package:instagram/shared/model/failure_model.dart';
 
 part 'login_state.dart';
 part 'login_cubit.freezed.dart';

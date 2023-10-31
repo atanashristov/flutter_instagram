@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/l10n/l10n.dart';
-import 'package:instagram/widget/tertiary_button.dart';
+import 'package:instagram/app/l10n/l10n.dart';
+import 'package:instagram/shared/widget/tertiary_button.dart';
 
 class ErrorDialog extends StatelessWidget {
   const ErrorDialog({

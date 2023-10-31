@@ -20,7 +20,7 @@ $ flutter run --flavor production --target lib/main_production.dart
 To generate the localized texts, run:
 
 ```sh
-flutter gen-l10n --arb-dir="lib/l10n/arb" 
+flutter gen-l10n
 ```
 
 To generate freezed classes run:

@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:instagram/feature/auth/data/auth_repo_base.dart';
 import 'package:instagram/feature/signup/cubit/signup_cubit.dart';
-import 'package:instagram/l10n/l10n.dart';
-import 'package:instagram/widget/error_dialog.dart';
-import 'package:instagram/widget/primary_button.dart';
-import 'package:instagram/widget/tertiary_button.dart';
+import 'package:instagram/app/l10n/l10n.dart';
+import 'package:instagram/shared/widget/error_dialog.dart';
+import 'package:instagram/shared/widget/primary_button.dart';
+import 'package:instagram/shared/widget/tertiary_button.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});

@@ -1,0 +1,19 @@
+{
+  "es": [
+    "appTitle",
+    "appPromptTitle",
+    "usernameFieldHintText",
+    "usernameFieldValidationError",
+    "emailFieldHintText",
+    "emailFieldValidationError",
+    "passwordFieldHintText",
+    "passwordFieldValidationError",
+    "loginButtonText",
+    "toSignupButtonText",
+    "signupButtonText",
+    "toLoginButtonText",
+    "errorDialogTitle",
+    "errorDialogDefaultMessage",
+    "okButtonTitle"
+  ]
+}

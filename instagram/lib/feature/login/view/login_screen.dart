@@ -4,10 +4,10 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:instagram/feature/auth/data/auth_repo_base.dart';
 import 'package:instagram/feature/login/cubit/login_cubit.dart';
 import 'package:instagram/feature/signup/view/signup_screen.dart';
-import 'package:instagram/l10n/l10n.dart';
-import 'package:instagram/widget/error_dialog.dart';
-import 'package:instagram/widget/primary_button.dart';
-import 'package:instagram/widget/tertiary_button.dart';
+import 'package:instagram/app/l10n/l10n.dart';
+import 'package:instagram/shared/widget/error_dialog.dart';
+import 'package:instagram/shared/widget/primary_button.dart';
+import 'package:instagram/shared/widget/tertiary_button.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
