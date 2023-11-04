@@ -51,58 +51,60 @@ class LoginScreen extends StatelessWidget {
               body: Center(
                 child: Padding(
                   padding: const EdgeInsets.all(24),
-                  child: Card(
-                    color: Colors.white,
-                    child: Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: Form(
-                        key: _formKey,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              context.l10n.appPromptTitle,
-                              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                            const SizedBox(height: 12),
-                            TextFormField(
-                              decoration: InputDecoration(hintText: context.l10n.emailFieldHintText),
-                              onChanged: (value) => context.read<LoginCubit>().emailChanged(value),
-                              // autovalidateMode: AutovalidateMode.always,
-                              validator: FormBuilderValidators.compose([
-                                FormBuilderValidators.required(),
-                                FormBuilderValidators.email(),
-                              ]),
-                            ),
-                            const SizedBox(height: 12),
-                            TextFormField(
-                              obscureText: true,
-                              decoration: InputDecoration(hintText: context.l10n.passwordFieldHintText),
-                              onChanged: (value) => context.read<LoginCubit>().passwordChanged(value),
-                              // autovalidateMode: AutovalidateMode.always,
-                              validator: FormBuilderValidators.compose([
-                                FormBuilderValidators.required(),
-                                FormBuilderValidators.minLength(6),
-                                // FormBuilderValidators.match(
-                                //   r'^(?=(.*[a-z]){1,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})$',
-                                //   errorText: context.l10n.passwordFieldValidationError,
-                                // ), // https://stackoverflow.com/questions/5142103/regex-to-validate-password-strength
-                              ]),
-                            ),
-                            const SizedBox(height: 20),
-                            PrimaryButton(
-                              onPressed: () => _submitForm(context, state.status.isSubmitting),
-                              title: context.l10n.loginButtonText,
-                            ),
-                            const SizedBox(height: 12),
-                            TertiaryButton(
-                              onPressed: () => Navigator.of(context).pushNamed(SignupScreen.routeName),
-                              title: context.l10n.toSignupButtonText,
-                            ),
-                          ],
+                  child: SingleChildScrollView(
+                    child: Card(
+                      color: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Form(
+                          key: _formKey,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                context.l10n.appPromptTitle,
+                                style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 12),
+                              TextFormField(
+                                decoration: InputDecoration(hintText: context.l10n.emailFieldHintText),
+                                onChanged: (value) => context.read<LoginCubit>().emailChanged(value),
+                                // autovalidateMode: AutovalidateMode.always,
+                                validator: FormBuilderValidators.compose([
+                                  FormBuilderValidators.required(),
+                                  FormBuilderValidators.email(),
+                                ]),
+                              ),
+                              const SizedBox(height: 12),
+                              TextFormField(
+                                obscureText: true,
+                                decoration: InputDecoration(hintText: context.l10n.passwordFieldHintText),
+                                onChanged: (value) => context.read<LoginCubit>().passwordChanged(value),
+                                // autovalidateMode: AutovalidateMode.always,
+                                validator: FormBuilderValidators.compose([
+                                  FormBuilderValidators.required(),
+                                  FormBuilderValidators.minLength(6),
+                                  // FormBuilderValidators.match(
+                                  //   r'^(?=(.*[a-z]){1,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})$',
+                                  //   errorText: context.l10n.passwordFieldValidationError,
+                                  // ), // https://stackoverflow.com/questions/5142103/regex-to-validate-password-strength
+                                ]),
+                              ),
+                              const SizedBox(height: 20),
+                              PrimaryButton(
+                                onPressed: () => _submitForm(context, state.status.isSubmitting),
+                                title: context.l10n.loginButtonText,
+                              ),
+                              const SizedBox(height: 12),
+                              TertiaryButton(
+                                onPressed: () => Navigator.of(context).pushNamed(SignupScreen.routeName),
+                                title: context.l10n.toSignupButtonText,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

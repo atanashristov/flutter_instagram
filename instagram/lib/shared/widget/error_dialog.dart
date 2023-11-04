@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/app/l10n/l10n.dart';
 import 'package:instagram/shared/widget/tertiary_button.dart';
@@ -20,7 +21,7 @@ class ErrorDialog extends StatelessWidget {
     final dialogTitle = title ?? context.l10n.errorDialogTitle;
     final dialogMessage = message ?? context.l10n.errorDialogDefaultMessage;
 
-    return Platform.isIOS
+    return !kIsWeb && Platform.isIOS
         ? _showIOSDialog(context, dialogTitle, dialogMessage)
         : _showMaterialDialog(context, dialogTitle, dialogMessage);
   }

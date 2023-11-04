@@ -3,14 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/feature/nav/cubit/bottom_nav_bar_cubit.dart';
 import 'package:instagram/feature/nav/model/bottom_nav_item.dart';
 import 'package:instagram/feature/nav/widget/bottom_nav_bar.dart';
+import 'package:instagram/feature/nav/widget/tab_navigator.dart';
 
 class NavScreen extends StatelessWidget {
   const NavScreen({super.key});
 
   static const String routeName = '/nav';
 
-  // Use `PageRouteBuilder` with `transitionDuration = 0`
-  // so that the login appears above the splash screen
+  /// Use `PageRouteBuilder` with `transitionDuration = 0`
+  /// so that the login appears above the splash screen
   static Route<dynamic> route() => PageRouteBuilder(
         settings: const RouteSettings(name: routeName),
         transitionDuration: Duration.zero,
@@ -20,7 +21,17 @@ class NavScreen extends StatelessWidget {
         ),
       );
 
-  Map<BottomNavItem, IconData> get navItems => {
+  /// Defines nav keys for each nav item, that we can reference,
+  /// so that we have unique navigation stack for each of the nav items.
+  static Map<BottomNavItem, GlobalKey<NavigatorState>> navKeys = {
+    BottomNavItem.feed: GlobalKey<NavigatorState>(),
+    BottomNavItem.search: GlobalKey<NavigatorState>(),
+    BottomNavItem.create: GlobalKey<NavigatorState>(),
+    BottomNavItem.notifications: GlobalKey<NavigatorState>(),
+    BottomNavItem.profile: GlobalKey<NavigatorState>(),
+  };
+
+  static Map<BottomNavItem, IconData> get navItems => {
         BottomNavItem.feed: BottomNavItem.feed.defaultIcon,
         BottomNavItem.search: BottomNavItem.search.defaultIcon,
         BottomNavItem.create: BottomNavItem.create.defaultIcon,
@@ -34,17 +45,54 @@ class NavScreen extends StatelessWidget {
       onWillPop: () async => false,
       child: BlocBuilder<BottomNavBarCubit, BottomNavBarState>(
         builder: (context, state) {
+          // Create a Stack widget with list of Offstage navigators.
+          // We actually render all these screens, but we only show the widget
+          // that is associated with the selected navigation item.
           return Scaffold(
-            body: const Center(child: Text('Nav screen')),
+            body: Stack(
+              children: navItems
+                  .map(
+                    (item, _) => MapEntry(item, _buildOffstageNavigator(item, item == state.selectedItem)),
+                  )
+                  .values
+                  .toList(),
+            ),
             bottomNavigationBar: BottomNavBar(
               items: navItems,
               selectedItem: state.selectedItem,
               onTap: (index) {
-                context.read<BottomNavBarCubit>().updateSelectedItem(navItems.keys.toList()[index]);
+                final selectedItem = navItems.keys.toList()[index];
+                _selectBottomNavItem(
+                  context,
+                  selectedItem,
+                  selectedItem == state.selectedItem,
+                );
               },
             ),
           );
         },
+      ),
+    );
+  }
+
+  void _selectBottomNavItem(BuildContext context, BottomNavItem selectedItem, bool isSameItem) {
+    if (isSameItem) {
+      // pop all the way to the first route of the navigation
+      navKeys[selectedItem]?.currentState?.popUntil((route) => route.isFirst);
+    }
+    context.read<BottomNavBarCubit>().updateSelectedItem(selectedItem);
+  }
+
+  Widget _buildOffstageNavigator(
+    BottomNavItem currentItem,
+    bool isSelected,
+  ) {
+    return Offstage(
+      offstage: !isSelected,
+      // We render T
+      child: TabNavigator(
+        navigatorKey: navKeys[currentItem]!,
+        item: currentItem,
       ),
     );
   }

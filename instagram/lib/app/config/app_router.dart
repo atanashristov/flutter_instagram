@@ -28,6 +28,14 @@ class AppRouter {
     }
   }
 
+  static Route<dynamic> onGenerateNestedRoute(RouteSettings settings) {
+    log('Nested Route: ${settings.name}');
+    switch (settings.name) {
+      default:
+        return _errorRoute();
+    }
+  }
+
   static Route<dynamic> _errorRoute() {
     return MaterialPageRoute(
       settings: const RouteSettings(
