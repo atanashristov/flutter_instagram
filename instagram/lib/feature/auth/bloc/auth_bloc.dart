@@ -9,8 +9,9 @@ part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc({required AuthRepoBase authRepo})
-      : _authRepo = authRepo,
+  AuthBloc({
+    required AuthRepoBase authRepo,
+  })  : _authRepo = authRepo,
         super(AuthState.unknown()) {
     _userSubscription = _authRepo.user.listen(
       (user) {

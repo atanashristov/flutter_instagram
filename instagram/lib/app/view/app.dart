@@ -7,6 +7,8 @@ import 'package:instagram/feature/auth/bloc/auth_bloc.dart';
 import 'package:instagram/feature/auth/data/auth_repo_base.dart';
 import 'package:instagram/feature/auth/data/auth_repo_impl.dart';
 import 'package:instagram/feature/splash/view/splash_screen.dart';
+import 'package:instagram/feature/user/data/user_repo_base.dart';
+import 'package:instagram/feature/user/data/user_repo_impl.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -17,6 +19,7 @@ class App extends StatelessWidget {
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<AuthRepoBase>(create: (_) => AuthRepoImpl()),
+        RepositoryProvider<UserRepoBase>(create: (_) => UserRepoImpl()),
       ],
       child: MultiBlocProvider(
         providers: [

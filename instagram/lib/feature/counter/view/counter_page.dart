@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:instagram/feature/counter/counter.dart';
 import 'package:instagram/app/l10n/l10n.dart';
 
+import 'package:instagram/shared/constants/constants.dart';
+
 class CounterPage extends StatelessWidget {
   const CounterPage({super.key});
 
@@ -32,7 +34,7 @@ class CounterView extends StatelessWidget {
             onPressed: () => context.read<CounterCubit>().increment(),
             child: const Icon(Icons.add),
           ),
-          const SizedBox(height: 8),
+          kSpacerVerticalS,
           FloatingActionButton(
             onPressed: () => context.read<CounterCubit>().decrement(),
             child: const Icon(Icons.remove),

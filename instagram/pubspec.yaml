@@ -26,7 +26,9 @@ dependencies:
   image_cropper: ^5.0.0
   image_picker: ^1.0.4
   intl: ^0.18.0
+  json_annotation: ^4.8.1
   meta: ^1.9.0
+  strings: ^2.0.3
   timeago: ^3.5.0
   uuid: ^4.1.0
 
@@ -36,6 +38,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.4.5
+  json_serializable: ^6.7.1
   mocktail: ^1.0.0
   very_good_analysis: ^5.1.0
 

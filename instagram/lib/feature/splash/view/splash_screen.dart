@@ -20,9 +20,9 @@ class SplashScreen extends StatelessWidget {
       onWillPop: () async => false,
       child: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          if (state.status == AuthStatus.unauthenticated) {
+          if (state.status.isUnauthenticated) {
             Navigator.of(context).pushNamed(LoginScreen.routeName);
-          } else if (state.status == AuthStatus.authenticated) {
+          } else if (state.status.isAuthenticated) {
             Navigator.of(context).pushNamed(NavScreen.routeName);
           }
         },

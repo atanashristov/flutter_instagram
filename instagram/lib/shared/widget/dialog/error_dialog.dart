@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/app/l10n/l10n.dart';
-import 'package:instagram/shared/widget/tertiary_button.dart';
+import 'package:instagram/shared/model/model.dart';
+import 'package:instagram/shared/widget/widget.dart';
 
 class ErrorDialog extends StatelessWidget {
   const ErrorDialog({
@@ -15,6 +16,14 @@ class ErrorDialog extends StatelessWidget {
 
   final String? title;
   final String? message;
+
+  static void showMessage(BuildContext context, {String? title, String? message}) => showDialog<AlertDialog>(
+        context: context,
+        builder: (context) => ErrorDialog(title: title, message: message),
+      );
+
+  static void showFailure(BuildContext context, {Failure? failure}) =>
+      showMessage(context, message: failure != null ? '${failure.code}: ${failure.message}' : null);
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +61,8 @@ class ErrorDialog extends StatelessWidget {
         content: Text(message),
         actions: [
           TertiaryButton(
+            context.l10n.okButtonTitle,
             onPressed: () => Navigator.of(context).pop(),
-            title: context.l10n.okButtonTitle,
           ),
         ],
       );

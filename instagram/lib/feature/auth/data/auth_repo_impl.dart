@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:flutter/services.dart';
 import 'package:instagram/app/config/paths.dart';
 import 'package:instagram/feature/auth/data/auth_repo_base.dart';
-import 'package:instagram/shared/model/failure_model.dart';
+import 'package:instagram/shared/model/model.dart';
 
 class AuthRepoImpl extends AuthRepoBase {
   AuthRepoImpl({
@@ -33,8 +33,6 @@ class AuthRepoImpl extends AuthRepoBase {
       await _firebaseFirestore.collection(Paths.users).doc(user?.uid).set({
         'username': username,
         'email': email,
-        'followers': 0,
-        'following': 0,
       });
       return user;
     } on auth.FirebaseAuthException catch (err) {

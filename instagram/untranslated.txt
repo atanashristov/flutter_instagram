@@ -14,6 +14,12 @@
     "toLoginButtonText",
     "errorDialogTitle",
     "errorDialogDefaultMessage",
-    "okButtonTitle"
+    "okButtonTitle",
+    "editProfileButtonTitle",
+    "followProfileButtonTitle",
+    "unfollowProfileButtonTitle",
+    "countOfPostsLabel",
+    "countOfFollowersLabel",
+    "countOfFollowingLabel"
   ]
 }

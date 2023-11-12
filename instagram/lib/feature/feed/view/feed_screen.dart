@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/shared/widget/primary_button.dart';
+import 'package:instagram/shared/widget/widget.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen({super.key});
@@ -11,7 +11,7 @@ class FeedScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: PrimaryButton(
-          title: 'Go to screen 1',
+          'Go to screen 1',
           onPressed: () => Navigator.of(context).push(
             MaterialPageRoute<dynamic>(
               builder: (_) => Scaffold(
@@ -20,7 +20,7 @@ class FeedScreen extends StatelessWidget {
                 ),
                 body: Center(
                   child: PrimaryButton(
-                    title: 'Go to screen 2',
+                    'Go to screen 2',
                     onPressed: () => Navigator.of(context).push(
                       MaterialPageRoute<dynamic>(
                         builder: (_) => Scaffold(

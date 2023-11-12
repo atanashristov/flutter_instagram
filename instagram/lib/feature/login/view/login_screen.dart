@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:instagram/app/l10n/l10n.dart';
 import 'package:instagram/feature/auth/data/auth_repo_base.dart';
 import 'package:instagram/feature/login/cubit/login_cubit.dart';
 import 'package:instagram/feature/signup/view/signup_screen.dart';
-import 'package:instagram/app/l10n/l10n.dart';
-import 'package:instagram/shared/widget/error_dialog.dart';
-import 'package:instagram/shared/widget/primary_button.dart';
-import 'package:instagram/shared/widget/tertiary_button.dart';
+import 'package:instagram/shared/constants/constants.dart';
+import 'package:instagram/shared/widget/widget.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -39,10 +38,7 @@ class LoginScreen extends StatelessWidget {
         child: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
             if (state.status.isError) {
-              showDialog<AlertDialog>(
-                context: context,
-                builder: (context) => ErrorDialog(message: state.failure?.message),
-              );
+              ErrorDialog.showFailure(context, failure: state.failure);
             }
           },
           builder: (context, state) {
@@ -68,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                                 style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
                               ),
-                              const SizedBox(height: 12),
+                              kSpacerVerticalM,
                               TextFormField(
                                 decoration: InputDecoration(hintText: context.l10n.emailFieldHintText),
                                 onChanged: (value) => context.read<LoginCubit>().emailChanged(value),
@@ -78,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                                   FormBuilderValidators.email(),
                                 ]),
                               ),
-                              const SizedBox(height: 12),
+                              kSpacerVerticalM,
                               TextFormField(
                                 obscureText: true,
                                 decoration: InputDecoration(hintText: context.l10n.passwordFieldHintText),
@@ -93,15 +89,15 @@ class LoginScreen extends StatelessWidget {
                                   // ), // https://stackoverflow.com/questions/5142103/regex-to-validate-password-strength
                                 ]),
                               ),
-                              const SizedBox(height: 20),
+                              kSpacerVerticalXL,
                               PrimaryButton(
+                                context.l10n.loginButtonText,
                                 onPressed: () => _submitForm(context, state.status.isSubmitting),
-                                title: context.l10n.loginButtonText,
                               ),
-                              const SizedBox(height: 12),
+                              kSpacerVerticalM,
                               TertiaryButton(
+                                context.l10n.toSignupButtonText,
                                 onPressed: () => Navigator.of(context).pushNamed(SignupScreen.routeName),
-                                title: context.l10n.toSignupButtonText,
                               ),
                             ],
                           ),

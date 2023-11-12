@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:instagram/app/l10n/l10n.dart';
 import 'package:instagram/feature/auth/data/auth_repo_base.dart';
 import 'package:instagram/feature/signup/cubit/signup_cubit.dart';
-import 'package:instagram/app/l10n/l10n.dart';
-import 'package:instagram/shared/widget/error_dialog.dart';
-import 'package:instagram/shared/widget/primary_button.dart';
-import 'package:instagram/shared/widget/tertiary_button.dart';
+import 'package:instagram/shared/constants/constants.dart';
+import 'package:instagram/shared/widget/widget.dart';
 
 class SignupScreen extends StatelessWidget {
   SignupScreen({super.key});
@@ -35,10 +34,7 @@ class SignupScreen extends StatelessWidget {
         child: BlocConsumer<SignupCubit, SignupState>(
           listener: (context, state) {
             if (state.status.isError) {
-              showDialog<AlertDialog>(
-                context: context,
-                builder: (context) => ErrorDialog(message: state.failure?.message),
-              );
+              ErrorDialog.showFailure(context, failure: state.failure);
             }
           },
           builder: (context, state) {
@@ -64,7 +60,7 @@ class SignupScreen extends StatelessWidget {
                                 style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
                               ),
-                              const SizedBox(height: 12),
+                              kSpacerVerticalM,
                               TextFormField(
                                 decoration: InputDecoration(hintText: context.l10n.usernameFieldHintText),
                                 onChanged: (value) => context.read<SignupCubit>().usernameChanged(value),
@@ -73,7 +69,7 @@ class SignupScreen extends StatelessWidget {
                                   FormBuilderValidators.minLength(6),
                                 ]),
                               ),
-                              const SizedBox(height: 12),
+                              kSpacerVerticalM,
                               TextFormField(
                                 decoration: InputDecoration(hintText: context.l10n.emailFieldHintText),
                                 onChanged: (value) => context.read<SignupCubit>().emailChanged(value),
@@ -82,7 +78,7 @@ class SignupScreen extends StatelessWidget {
                                   FormBuilderValidators.email(),
                                 ]),
                               ),
-                              const SizedBox(height: 12),
+                              kSpacerVerticalM,
                               TextFormField(
                                 obscureText: true,
                                 decoration: InputDecoration(hintText: context.l10n.passwordFieldHintText),
@@ -96,15 +92,15 @@ class SignupScreen extends StatelessWidget {
                                   // ), // https://stackoverflow.com/questions/5142103/regex-to-validate-password-strength
                                 ]),
                               ),
-                              const SizedBox(height: 20),
+                              kSpacerVerticalM,
                               PrimaryButton(
+                                context.l10n.signupButtonText,
                                 onPressed: () => _submitForm(context, state.status.isSubmitting),
-                                title: context.l10n.signupButtonText,
                               ),
-                              const SizedBox(height: 12),
+                              kSpacerVerticalM,
                               TertiaryButton(
+                                context.l10n.toLoginButtonText,
                                 onPressed: () => Navigator.of(context).pop(),
-                                title: context.l10n.toLoginButtonText,
                               ),
                             ],
                           ),

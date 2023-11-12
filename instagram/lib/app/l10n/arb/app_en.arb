@@ -64,5 +64,29 @@
     "okButtonTitle": "OK",
     "@okButtonTitle": {
         "description": "Title for OK button"
+    },
+    "editProfileButtonTitle": "Edit",
+    "@editProfileButtonTitle": {
+        "description": "Title for edit profile button"
+    },
+    "followProfileButtonTitle": "Follow",
+    "@followProfileButtonTitle": {
+        "description": "Title for follow profile button"
+    },
+    "unfollowProfileButtonTitle": "Unfollow",
+    "@unfollowProfileButtonTitle": {
+        "description": "Title for unfollow profile button"
+    },
+    "countOfPostsLabel": "posts",
+    "@countOfPostsLabel": {
+        "description": "Label for count of posts"
+    },
+    "countOfFollowersLabel": "followers",
+    "@countOfFollowersLabel": {
+        "description": "Label for count of followers"
+    },
+    "countOfFollowingLabel": "following",
+    "@countOfFollowingLabel": {
+        "description": "Label for count of following"
     }
 }

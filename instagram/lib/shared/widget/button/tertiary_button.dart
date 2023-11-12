@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/shared/widget/button/button.dart';
 
 class TertiaryButton extends StatelessWidget {
-  const TertiaryButton({
-    required this.title,
+  const TertiaryButton(
+    this.title, {
     this.onPressed,
+    this.fontSize = kDefaultButtonFontSize,
     super.key,
   });
 
   final String title;
   final VoidCallback? onPressed;
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        textStyle: const TextStyle(
-          fontSize: 20,
+        textStyle: TextStyle(
+          fontSize: fontSize,
           decoration: TextDecoration.underline,
         ),
       ),
