@@ -4,10 +4,12 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:instagram/app/config/app_router.dart';
 import 'package:instagram/app/l10n/l10n.dart';
 import 'package:instagram/feature/auth/bloc/auth_bloc.dart';
-import 'package:instagram/feature/auth/data/auth_repo_base.dart';
+import 'package:instagram/feature/auth/data/auth_repo.dart';
 import 'package:instagram/feature/auth/data/auth_repo_impl.dart';
+import 'package:instagram/feature/profile/data/profile_repo.dart';
+import 'package:instagram/feature/profile/data/profile_repo_impl.dart';
 import 'package:instagram/feature/splash/view/splash_screen.dart';
-import 'package:instagram/feature/user/data/user_repo_base.dart';
+import 'package:instagram/feature/user/data/user_repo.dart';
 import 'package:instagram/feature/user/data/user_repo_impl.dart';
 
 class App extends StatelessWidget {
@@ -18,14 +20,15 @@ class App extends StatelessWidget {
     // AuthRepoImpl().logOut();
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider<AuthRepoBase>(create: (_) => AuthRepoImpl()),
-        RepositoryProvider<UserRepoBase>(create: (_) => UserRepoImpl()),
+        RepositoryProvider<AuthRepo>(create: (_) => AuthRepoImpl()),
+        RepositoryProvider<UserRepo>(create: (_) => UserRepoImpl()),
+        RepositoryProvider<ProfileRepo>(create: (_) => ProfileRepoImpl()),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider<AuthBloc>(
             create: (context) => AuthBloc(
-              authRepo: context.read<AuthRepoBase>(),
+              authRepo: context.read<AuthRepo>(),
             ),
           ),
         ],

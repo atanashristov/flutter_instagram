@@ -37,6 +37,14 @@
     "@passwordFieldValidationError": {
         "description": "Password field validation error message"
     },
+    "bioFieldHintText": "Bio ...",
+    "@bioFieldHintText": {
+        "description": "Bio field hint text"
+    },
+    "updateButtonText": "Update",
+    "@updateButtonText": {
+        "description": "Update button text"
+    },
     "loginButtonText": "Log In",
     "@loginButtonText": {
         "description": "Login button text"
@@ -88,5 +96,14 @@
     "countOfFollowingLabel": "following",
     "@countOfFollowingLabel": {
         "description": "Label for count of following"
+    },
+    "profileEditScreenTitle": "Edit Profile",
+    "@profileEditScreenTitle": {
+        "description": "Title for profile edit screen"
+    },
+    "profileImageTitle": "Profile Image",
+    "@profileImageTitle": {
+        "description": "Title for profile image cropper/picker"
     }
+
 }

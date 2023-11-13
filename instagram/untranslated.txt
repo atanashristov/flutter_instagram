@@ -8,6 +8,8 @@
     "emailFieldValidationError",
     "passwordFieldHintText",
     "passwordFieldValidationError",
+    "bioFieldHintText",
+    "updateButtonText",
     "loginButtonText",
     "toSignupButtonText",
     "signupButtonText",
@@ -20,6 +22,8 @@
     "unfollowProfileButtonTitle",
     "countOfPostsLabel",
     "countOfFollowersLabel",
-    "countOfFollowingLabel"
+    "countOfFollowingLabel",
+    "profileEditScreenTitle",
+    "profileImageTitle"
   ]
 }

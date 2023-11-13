@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:instagram/app/l10n/l10n.dart';
-import 'package:instagram/feature/auth/data/auth_repo_base.dart';
+import 'package:instagram/feature/auth/data/auth_repo.dart';
 import 'package:instagram/feature/signup/cubit/signup_cubit.dart';
 import 'package:instagram/shared/constants/constants.dart';
 import 'package:instagram/shared/widget/widget.dart';
@@ -16,7 +16,7 @@ class SignupScreen extends StatelessWidget {
         settings: const RouteSettings(name: routeName),
         builder: (context) => BlocProvider<SignupCubit>(
           create: (_) => SignupCubit(
-            authRepo: context.read<AuthRepoBase>(),
+            authRepo: context.read<AuthRepo>(),
           ),
           child: SignupScreen(),
         ),

@@ -9,7 +9,7 @@ import 'package:instagram/feature/posts/view/create_post_screen.dart';
 import 'package:instagram/feature/profile/bloc/profile_bloc.dart';
 import 'package:instagram/feature/profile/view/profile_screen.dart';
 import 'package:instagram/feature/search/view/search_screen.dart';
-import 'package:instagram/feature/user/data/user_repo_base.dart';
+import 'package:instagram/feature/user/data/user_repo.dart';
 
 class TabNavigator extends StatelessWidget {
   const TabNavigator({
@@ -60,7 +60,7 @@ class TabNavigator extends StatelessWidget {
       case BottomNavItem.profile:
         return BlocProvider<ProfileBloc>(
           create: (_) => ProfileBloc(
-            userRepo: context.read<UserRepoBase>(),
+            userRepo: context.read<UserRepo>(),
             authBloc: context.read<AuthBloc>(),
           )..add(ProfileLoadUser(userId: context.read<AuthBloc>().state.user?.uid ?? '')),
           child: const ProfileScreen(),

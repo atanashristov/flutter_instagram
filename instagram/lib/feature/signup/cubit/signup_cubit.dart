@@ -1,17 +1,17 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:instagram/feature/auth/data/auth_repo_base.dart';
+import 'package:instagram/feature/auth/data/auth_repo.dart';
 import 'package:instagram/shared/model/model.dart';
 
 part 'signup_state.dart';
 part 'signup_cubit.freezed.dart';
 
 class SignupCubit extends Cubit<SignupState> {
-  SignupCubit({required AuthRepoBase authRepo})
+  SignupCubit({required AuthRepo authRepo})
       : _authRepo = authRepo,
         super(const SignupState());
 
-  final AuthRepoBase _authRepo;
+  final AuthRepo _authRepo;
 
   void usernameChanged(String value) {
     emit(state.copyWith(username: value, status: SignupStatus.initial));

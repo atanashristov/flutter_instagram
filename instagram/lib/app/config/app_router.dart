@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:instagram/feature/login/view/login_screen.dart';
 import 'package:instagram/feature/nav/view/nav_screen.dart';
+import 'package:instagram/feature/profile/view/profile_edit_screen.dart';
 import 'package:instagram/feature/signup/view/signup_screen.dart';
 import 'package:instagram/feature/splash/view/splash_screen.dart';
 
@@ -31,6 +32,8 @@ class AppRouter {
   static Route<dynamic> onGenerateNestedRoute(RouteSettings settings) {
     log('Nested Route: ${settings.name}');
     switch (settings.name) {
+      case ProfileEditScreen.routeName:
+        return ProfileEditScreen.route(args: settings.arguments! as ProfileEditScreenArgs);
       default:
         return _errorRoute();
     }

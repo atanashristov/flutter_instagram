@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:instagram/app/l10n/l10n.dart';
+import 'package:instagram/feature/profile/view/profile_edit_screen.dart';
 import 'package:instagram/shared/widget/widget.dart';
 
 class ProfileButton extends StatelessWidget {
@@ -20,7 +21,10 @@ class ProfileButton extends StatelessWidget {
         ? PrimaryButton(
             context.l10n.editProfileButtonTitle,
             fontSize: 16,
-            onPressed: () => log('Edit profile'),
+            onPressed: () => Navigator.of(context).pushNamed(
+              ProfileEditScreen.routeName,
+              arguments: ProfileEditScreenArgs(context: context),
+            ),
           )
         : isFollowing
             ? SecondaryButton(

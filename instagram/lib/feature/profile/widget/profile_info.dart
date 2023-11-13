@@ -26,6 +26,7 @@ class ProfileInfo extends StatelessWidget {
           kSpacerVerticalS,
           Text(bio ?? '', style: const TextStyle(fontSize: 15)),
         ],
+        const Divider(),
       ],
     );
   }

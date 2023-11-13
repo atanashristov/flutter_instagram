@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-import 'package:instagram/feature/auth/data/auth_repo_base.dart';
+import 'package:instagram/feature/auth/data/auth_repo.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc({
-    required AuthRepoBase authRepo,
+    required AuthRepo authRepo,
   })  : _authRepo = authRepo,
         super(AuthState.unknown()) {
     _userSubscription = _authRepo.user.listen(
@@ -31,7 +31,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     });
   }
 
-  final AuthRepoBase _authRepo;
+  final AuthRepo _authRepo;
   late StreamSubscription<auth.User?> _userSubscription;
 
   @override

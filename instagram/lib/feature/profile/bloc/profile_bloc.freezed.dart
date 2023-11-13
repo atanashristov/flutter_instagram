@@ -223,11 +223,11 @@ abstract class ProfileLoadUser implements ProfileEvent {
 
 /// @nodoc
 mixin _$ProfileState {
+  ProfileStatus get status => throw _privateConstructorUsedError;
   UserModel get user => throw _privateConstructorUsedError;
   bool get isCurrentUser => throw _privateConstructorUsedError;
   bool get isGridView => throw _privateConstructorUsedError;
   bool get isFollowing => throw _privateConstructorUsedError;
-  ProfileStatus get status => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -242,11 +242,11 @@ abstract class $ProfileStateCopyWith<$Res> {
       _$ProfileStateCopyWithImpl<$Res, ProfileState>;
   @useResult
   $Res call(
-      {UserModel user,
+      {ProfileStatus status,
+      UserModel user,
       bool isCurrentUser,
       bool isGridView,
       bool isFollowing,
-      ProfileStatus status,
       Failure? failure});
 
   $UserModelCopyWith<$Res> get user;
@@ -265,14 +265,18 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
     Object? user = null,
     Object? isCurrentUser = null,
     Object? isGridView = null,
     Object? isFollowing = null,
-    Object? status = null,
     Object? failure = freezed,
   }) {
     return _then(_value.copyWith(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ProfileStatus,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -289,10 +293,6 @@ class _$ProfileStateCopyWithImpl<$Res, $Val extends ProfileState>
           ? _value.isFollowing
           : isFollowing // ignore: cast_nullable_to_non_nullable
               as bool,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ProfileStatus,
       failure: freezed == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -318,11 +318,11 @@ abstract class _$$ProfileStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {UserModel user,
+      {ProfileStatus status,
+      UserModel user,
       bool isCurrentUser,
       bool isGridView,
       bool isFollowing,
-      ProfileStatus status,
       Failure? failure});
 
   @override
@@ -340,14 +340,18 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? status = null,
     Object? user = null,
     Object? isCurrentUser = null,
     Object? isGridView = null,
     Object? isFollowing = null,
-    Object? status = null,
     Object? failure = freezed,
   }) {
     return _then(_$ProfileStateImpl(
+      status: null == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as ProfileStatus,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -364,10 +368,6 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
           ? _value.isFollowing
           : isFollowing // ignore: cast_nullable_to_non_nullable
               as bool,
-      status: null == status
-          ? _value.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as ProfileStatus,
       failure: freezed == failure
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -380,13 +380,16 @@ class __$$ProfileStateImplCopyWithImpl<$Res>
 
 class _$ProfileStateImpl implements _ProfileState {
   const _$ProfileStateImpl(
-      {this.user = UserModel.empty,
+      {this.status = ProfileStatus.initial,
+      this.user = UserModel.empty,
       this.isCurrentUser = false,
       this.isGridView = false,
       this.isFollowing = false,
-      this.status = ProfileStatus.initial,
       this.failure = null});
 
+  @override
+  @JsonKey()
+  final ProfileStatus status;
   @override
   @JsonKey()
   final UserModel user;
@@ -401,14 +404,11 @@ class _$ProfileStateImpl implements _ProfileState {
   final bool isFollowing;
   @override
   @JsonKey()
-  final ProfileStatus status;
-  @override
-  @JsonKey()
   final Failure? failure;
 
   @override
   String toString() {
-    return 'ProfileState._(user: $user, isCurrentUser: $isCurrentUser, isGridView: $isGridView, isFollowing: $isFollowing, status: $status, failure: $failure)';
+    return 'ProfileState._(status: $status, user: $user, isCurrentUser: $isCurrentUser, isGridView: $isGridView, isFollowing: $isFollowing, failure: $failure)';
   }
 
   @override
@@ -416,6 +416,7 @@ class _$ProfileStateImpl implements _ProfileState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProfileStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.isCurrentUser, isCurrentUser) ||
                 other.isCurrentUser == isCurrentUser) &&
@@ -423,13 +424,12 @@ class _$ProfileStateImpl implements _ProfileState {
                 other.isGridView == isGridView) &&
             (identical(other.isFollowing, isFollowing) ||
                 other.isFollowing == isFollowing) &&
-            (identical(other.status, status) || other.status == status) &&
             (identical(other.failure, failure) || other.failure == failure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, user, isCurrentUser, isGridView,
-      isFollowing, status, failure);
+  int get hashCode => Object.hash(runtimeType, status, user, isCurrentUser,
+      isGridView, isFollowing, failure);
 
   @JsonKey(ignore: true)
   @override
@@ -440,13 +440,15 @@ class _$ProfileStateImpl implements _ProfileState {
 
 abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
-      {final UserModel user,
+      {final ProfileStatus status,
+      final UserModel user,
       final bool isCurrentUser,
       final bool isGridView,
       final bool isFollowing,
-      final ProfileStatus status,
       final Failure? failure}) = _$ProfileStateImpl;
 
+  @override
+  ProfileStatus get status;
   @override
   UserModel get user;
   @override
@@ -455,8 +457,6 @@ abstract class _ProfileState implements ProfileState {
   bool get isGridView;
   @override
   bool get isFollowing;
-  @override
-  ProfileStatus get status;
   @override
   Failure? get failure;
   @override

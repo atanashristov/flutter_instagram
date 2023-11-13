@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:instagram/feature/auth/bloc/auth_bloc.dart';
-import 'package:instagram/feature/user/data/user_repo_base.dart';
+import 'package:instagram/feature/user/data/user_repo.dart';
 import 'package:instagram/feature/user/models/user_model.dart';
 import 'package:instagram/shared/extension/extension.dart';
 import 'package:instagram/shared/model/model.dart';
@@ -12,7 +12,7 @@ part 'profile_bloc.freezed.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc({
-    required UserRepoBase userRepo,
+    required UserRepo userRepo,
     required AuthBloc authBloc,
   })  : _userRepo = userRepo,
         _authBloc = authBloc,
@@ -26,7 +26,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<ProfileLoadUser>(_onProfileLoadUser);
   }
 
-  final UserRepoBase _userRepo;
+  final UserRepo _userRepo;
   final AuthBloc _authBloc;
 
   Future<void> _onProfileLoadUser(

@@ -16,11 +16,11 @@ enum ProfileStatus {
 @freezed
 class ProfileState with _$ProfileState {
   const factory ProfileState._({
+    @Default(ProfileStatus.initial) ProfileStatus status,
     @Default(UserModel.empty) UserModel user,
     @Default(false) bool isCurrentUser,
     @Default(false) bool isGridView,
     @Default(false) bool isFollowing,
-    @Default(ProfileStatus.initial) ProfileStatus status,
     @Default(null) Failure? failure,
   }) = _ProfileState;
   factory ProfileState.initial() => const ProfileState._();

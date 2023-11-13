@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
-abstract class AuthRepoBase {
+abstract class AuthRepo {
   Stream<auth.User?> get user;
   Future<auth.User?> signUpWithEmailAndPassword({
     required String username,

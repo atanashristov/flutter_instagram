@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:instagram/app/l10n/l10n.dart';
-import 'package:instagram/feature/auth/data/auth_repo_base.dart';
+import 'package:instagram/feature/auth/data/auth_repo.dart';
 import 'package:instagram/feature/login/cubit/login_cubit.dart';
 import 'package:instagram/feature/signup/view/signup_screen.dart';
 import 'package:instagram/shared/constants/constants.dart';
@@ -20,7 +20,7 @@ class LoginScreen extends StatelessWidget {
         transitionDuration: Duration.zero,
         pageBuilder: (context, _, __) => BlocProvider<LoginCubit>(
           create: (_) => LoginCubit(
-            authRepo: context.read<AuthRepoBase>(),
+            authRepo: context.read<AuthRepo>(),
           ),
           child: LoginScreen(),
         ),
