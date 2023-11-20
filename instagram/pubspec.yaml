@@ -7,9 +7,11 @@ environment:
   sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
+  auto_mappr_annotation: ^2.1.0
   bloc: ^8.1.2
   cached_network_image: ^3.3.0
   cloud_firestore: ^4.11.0
+  either_dart: ^1.0.0
   enum_to_string: ^2.0.1
   equatable: ^2.0.5
   firebase_analytics: ^10.6.1
@@ -33,6 +35,7 @@ dependencies:
   uuid: ^4.1.0
 
 dev_dependencies:
+  auto_mappr: ^2.1.1
   bloc_test: ^9.1.4
   build_runner: ^2.4.6
   flutter_test:

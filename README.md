@@ -253,3 +253,5 @@ flutter pub add --dev json_serializable
 See:
 
 - [Firestore convertors](https://stackoverflow.com/questions/68079030/how-to-use-firestore-withconverter-in-flutter)
+
+- [Firestore read data](https://firebase.google.com/docs/firestore/query-data/get-data)

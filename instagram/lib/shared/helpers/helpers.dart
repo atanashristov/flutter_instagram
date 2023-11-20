@@ -1,1 +1,1 @@
-export 'image_helper.dart';
+export 'src/image_helper.dart';
