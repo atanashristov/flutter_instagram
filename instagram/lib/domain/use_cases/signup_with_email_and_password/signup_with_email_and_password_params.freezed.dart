@@ -21,21 +21,24 @@ mixin _$SignUpWithEmailAndPasswordParams {
   String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SignUpWithEmailAndPasswordParamsCopyWith<SignUpWithEmailAndPasswordParams> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SignUpWithEmailAndPasswordParamsCopyWith<SignUpWithEmailAndPasswordParams>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SignUpWithEmailAndPasswordParamsCopyWith<$Res> {
   factory $SignUpWithEmailAndPasswordParamsCopyWith(
-          SignUpWithEmailAndPasswordParams value, $Res Function(SignUpWithEmailAndPasswordParams) then) =
-      _$SignUpWithEmailAndPasswordParamsCopyWithImpl<$Res, SignUpWithEmailAndPasswordParams>;
+          SignUpWithEmailAndPasswordParams value,
+          $Res Function(SignUpWithEmailAndPasswordParams) then) =
+      _$SignUpWithEmailAndPasswordParamsCopyWithImpl<$Res,
+          SignUpWithEmailAndPasswordParams>;
   @useResult
   $Res call({String username, String email, String password});
 }
 
 /// @nodoc
-class _$SignUpWithEmailAndPasswordParamsCopyWithImpl<$Res, $Val extends SignUpWithEmailAndPasswordParams>
+class _$SignUpWithEmailAndPasswordParamsCopyWithImpl<$Res,
+        $Val extends SignUpWithEmailAndPasswordParams>
     implements $SignUpWithEmailAndPasswordParamsCopyWith<$Res> {
   _$SignUpWithEmailAndPasswordParamsCopyWithImpl(this._value, this._then);
 
@@ -72,7 +75,8 @@ class _$SignUpWithEmailAndPasswordParamsCopyWithImpl<$Res, $Val extends SignUpWi
 abstract class _$$SignUpWithEmailAndPasswordParamsImplCopyWith<$Res>
     implements $SignUpWithEmailAndPasswordParamsCopyWith<$Res> {
   factory _$$SignUpWithEmailAndPasswordParamsImplCopyWith(
-          _$SignUpWithEmailAndPasswordParamsImpl value, $Res Function(_$SignUpWithEmailAndPasswordParamsImpl) then) =
+          _$SignUpWithEmailAndPasswordParamsImpl value,
+          $Res Function(_$SignUpWithEmailAndPasswordParamsImpl) then) =
       __$$SignUpWithEmailAndPasswordParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
@@ -81,10 +85,12 @@ abstract class _$$SignUpWithEmailAndPasswordParamsImplCopyWith<$Res>
 
 /// @nodoc
 class __$$SignUpWithEmailAndPasswordParamsImplCopyWithImpl<$Res>
-    extends _$SignUpWithEmailAndPasswordParamsCopyWithImpl<$Res, _$SignUpWithEmailAndPasswordParamsImpl>
+    extends _$SignUpWithEmailAndPasswordParamsCopyWithImpl<$Res,
+        _$SignUpWithEmailAndPasswordParamsImpl>
     implements _$$SignUpWithEmailAndPasswordParamsImplCopyWith<$Res> {
   __$$SignUpWithEmailAndPasswordParamsImplCopyWithImpl(
-      _$SignUpWithEmailAndPasswordParamsImpl _value, $Res Function(_$SignUpWithEmailAndPasswordParamsImpl) _then)
+      _$SignUpWithEmailAndPasswordParamsImpl _value,
+      $Res Function(_$SignUpWithEmailAndPasswordParamsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,8 +119,10 @@ class __$$SignUpWithEmailAndPasswordParamsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SignUpWithEmailAndPasswordParamsImpl implements _SignUpWithEmailAndPasswordParams {
-  const _$SignUpWithEmailAndPasswordParamsImpl({this.username = '', this.email = '', this.password = ''});
+class _$SignUpWithEmailAndPasswordParamsImpl
+    implements _SignUpWithEmailAndPasswordParams {
+  const _$SignUpWithEmailAndPasswordParamsImpl(
+      {this.username = '', this.email = '', this.password = ''});
 
   @override
   @JsonKey()
@@ -136,9 +144,11 @@ class _$SignUpWithEmailAndPasswordParamsImpl implements _SignUpWithEmailAndPassw
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SignUpWithEmailAndPasswordParamsImpl &&
-            (identical(other.username, username) || other.username == username) &&
+            (identical(other.username, username) ||
+                other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.password, password) || other.password == password));
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @override
@@ -147,13 +157,18 @@ class _$SignUpWithEmailAndPasswordParamsImpl implements _SignUpWithEmailAndPassw
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SignUpWithEmailAndPasswordParamsImplCopyWith<_$SignUpWithEmailAndPasswordParamsImpl> get copyWith =>
-      __$$SignUpWithEmailAndPasswordParamsImplCopyWithImpl<_$SignUpWithEmailAndPasswordParamsImpl>(this, _$identity);
+  _$$SignUpWithEmailAndPasswordParamsImplCopyWith<
+          _$SignUpWithEmailAndPasswordParamsImpl>
+      get copyWith => __$$SignUpWithEmailAndPasswordParamsImplCopyWithImpl<
+          _$SignUpWithEmailAndPasswordParamsImpl>(this, _$identity);
 }
 
-abstract class _SignUpWithEmailAndPasswordParams implements SignUpWithEmailAndPasswordParams {
-  const factory _SignUpWithEmailAndPasswordParams({final String username, final String email, final String password}) =
-      _$SignUpWithEmailAndPasswordParamsImpl;
+abstract class _SignUpWithEmailAndPasswordParams
+    implements SignUpWithEmailAndPasswordParams {
+  const factory _SignUpWithEmailAndPasswordParams(
+      {final String username,
+      final String email,
+      final String password}) = _$SignUpWithEmailAndPasswordParamsImpl;
 
   @override
   String get username;
@@ -163,6 +178,7 @@ abstract class _SignUpWithEmailAndPasswordParams implements SignUpWithEmailAndPa
   String get password;
   @override
   @JsonKey(ignore: true)
-  _$$SignUpWithEmailAndPasswordParamsImplCopyWith<_$SignUpWithEmailAndPasswordParamsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SignUpWithEmailAndPasswordParamsImplCopyWith<
+          _$SignUpWithEmailAndPasswordParamsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

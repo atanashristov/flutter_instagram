@@ -14,6 +14,7 @@ dependencies:
   either_dart: ^1.0.0
   enum_to_string: ^2.0.1
   equatable: ^2.0.5
+  event_bus: ^2.0.0
   firebase_analytics: ^10.6.1
   firebase_auth: ^4.11.1
   firebase_core: ^2.17.0

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:instagram/domain/entities/user.dart';
@@ -5,6 +7,7 @@ import 'package:instagram/domain/failures/failures.dart';
 import 'package:instagram/domain/use_cases/get_user/get_user.dart';
 import 'package:instagram/domain/use_cases/get_user/get_user_params.dart';
 import 'package:instagram/shared/extensions/extensions.dart';
+import 'package:instagram/ui/events/events.dart';
 import 'package:instagram/ui/features/auth/bloc/auth_bloc.dart';
 
 part 'profile_bloc.freezed.dart';
@@ -25,10 +28,23 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     // });
 
     on<ProfileLoadUser>(_onProfileLoadUser);
+    on<ProfileResetUser>(_onProfileResetUser);
+
+    _loggedOutSubscription = EventBus().listen<UserLoggedOutEvent>((_) => _onLoggedOut());
+    _loggedInSubscription = EventBus().listen<UserLoggedInEvent>(_onLoggedIn);
   }
 
   final GetUser _getUser;
   final AuthBloc _authBloc;
+  late final StreamSubscription<UserLoggedOutEvent> _loggedOutSubscription;
+  late final StreamSubscription<UserLoggedInEvent> _loggedInSubscription;
+
+  @override
+  Future<void> close() async {
+    await _loggedOutSubscription.cancel();
+    await _loggedInSubscription.cancel();
+    await super.close();
+  }
 
   Future<void> _onProfileLoadUser(
     ProfileLoadUser event,
@@ -54,5 +70,20 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         status: ProfileStatus.loaded,
       ),
     );
+  }
+
+  Future<void> _onProfileResetUser(
+    ProfileResetUser event,
+    Emitter<ProfileState> emit,
+  ) async {
+    emit(ProfileState.initial());
+  }
+
+  void _onLoggedOut() {
+    add(const ProfileResetUser());
+  }
+
+  void _onLoggedIn(UserLoggedInEvent event) {
+    add(ProfileLoadUser(userId: event.userId));
   }
 }

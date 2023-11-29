@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:instagram/domain/repositories/auth_repository.dart';
+import 'package:instagram/ui/events/events.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -16,6 +17,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     _userSubscription = _authRepo.user.listen(
       (user) {
         add(AuthUserChanged(user: user));
+        EventBus().fire(user != null ? UserLoggedInEvent(userId: user.uid) : UserLoggedOutEvent());
       },
     );
     on<AuthEvent>((event, emit) async {
@@ -32,7 +34,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   final AuthRepository _authRepo;
-  late StreamSubscription<auth.User?> _userSubscription;
+  late final StreamSubscription<auth.User?> _userSubscription;
 
   @override
   Future<void> close() {

@@ -16,42 +16,43 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ProfileEvent {
-  String get userId => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadUser,
+    required TResult Function() resetUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadUser,
+    TResult? Function()? resetUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadUser,
+    TResult Function()? resetUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileLoadUser value) loadUser,
+    required TResult Function(ProfileResetUser value) resetUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileLoadUser value)? loadUser,
+    TResult? Function(ProfileResetUser value)? resetUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileLoadUser value)? loadUser,
+    TResult Function(ProfileResetUser value)? resetUser,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ProfileEventCopyWith<ProfileEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,8 +61,6 @@ abstract class $ProfileEventCopyWith<$Res> {
   factory $ProfileEventCopyWith(
           ProfileEvent value, $Res Function(ProfileEvent) then) =
       _$ProfileEventCopyWithImpl<$Res, ProfileEvent>;
-  @useResult
-  $Res call({String userId});
 }
 
 /// @nodoc
@@ -73,28 +72,13 @@ class _$ProfileEventCopyWithImpl<$Res, $Val extends ProfileEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userId = null,
-  }) {
-    return _then(_value.copyWith(
-      userId: null == userId
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ProfileLoadUserImplCopyWith<$Res>
-    implements $ProfileEventCopyWith<$Res> {
+abstract class _$$ProfileLoadUserImplCopyWith<$Res> {
   factory _$$ProfileLoadUserImplCopyWith(_$ProfileLoadUserImpl value,
           $Res Function(_$ProfileLoadUserImpl) then) =
       __$$ProfileLoadUserImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({String userId});
 }
@@ -156,6 +140,7 @@ class _$ProfileLoadUserImpl implements ProfileLoadUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) loadUser,
+    required TResult Function() resetUser,
   }) {
     return loadUser(userId);
   }
@@ -164,6 +149,7 @@ class _$ProfileLoadUserImpl implements ProfileLoadUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String userId)? loadUser,
+    TResult? Function()? resetUser,
   }) {
     return loadUser?.call(userId);
   }
@@ -172,6 +158,7 @@ class _$ProfileLoadUserImpl implements ProfileLoadUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? loadUser,
+    TResult Function()? resetUser,
     required TResult orElse(),
   }) {
     if (loadUser != null) {
@@ -184,6 +171,7 @@ class _$ProfileLoadUserImpl implements ProfileLoadUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ProfileLoadUser value) loadUser,
+    required TResult Function(ProfileResetUser value) resetUser,
   }) {
     return loadUser(this);
   }
@@ -192,6 +180,7 @@ class _$ProfileLoadUserImpl implements ProfileLoadUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ProfileLoadUser value)? loadUser,
+    TResult? Function(ProfileResetUser value)? resetUser,
   }) {
     return loadUser?.call(this);
   }
@@ -200,6 +189,7 @@ class _$ProfileLoadUserImpl implements ProfileLoadUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ProfileLoadUser value)? loadUser,
+    TResult Function(ProfileResetUser value)? resetUser,
     required TResult orElse(),
   }) {
     if (loadUser != null) {
@@ -213,12 +203,112 @@ abstract class ProfileLoadUser implements ProfileEvent {
   const factory ProfileLoadUser({required final String userId}) =
       _$ProfileLoadUserImpl;
 
-  @override
   String get userId;
-  @override
   @JsonKey(ignore: true)
   _$$ProfileLoadUserImplCopyWith<_$ProfileLoadUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ProfileResetUserImplCopyWith<$Res> {
+  factory _$$ProfileResetUserImplCopyWith(_$ProfileResetUserImpl value,
+          $Res Function(_$ProfileResetUserImpl) then) =
+      __$$ProfileResetUserImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ProfileResetUserImplCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res, _$ProfileResetUserImpl>
+    implements _$$ProfileResetUserImplCopyWith<$Res> {
+  __$$ProfileResetUserImplCopyWithImpl(_$ProfileResetUserImpl _value,
+      $Res Function(_$ProfileResetUserImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ProfileResetUserImpl implements ProfileResetUser {
+  const _$ProfileResetUserImpl();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.resetUser()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ProfileResetUserImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) loadUser,
+    required TResult Function() resetUser,
+  }) {
+    return resetUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String userId)? loadUser,
+    TResult? Function()? resetUser,
+  }) {
+    return resetUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? loadUser,
+    TResult Function()? resetUser,
+    required TResult orElse(),
+  }) {
+    if (resetUser != null) {
+      return resetUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ProfileLoadUser value) loadUser,
+    required TResult Function(ProfileResetUser value) resetUser,
+  }) {
+    return resetUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ProfileLoadUser value)? loadUser,
+    TResult? Function(ProfileResetUser value)? resetUser,
+  }) {
+    return resetUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ProfileLoadUser value)? loadUser,
+    TResult Function(ProfileResetUser value)? resetUser,
+    required TResult orElse(),
+  }) {
+    if (resetUser != null) {
+      return resetUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ProfileResetUser implements ProfileEvent {
+  const factory ProfileResetUser() = _$ProfileResetUserImpl;
 }
 
 /// @nodoc
